@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade Prática - Desenvolvimento FrontEnd</title>
+</head>
+<body>
+  <form action="" method="post">
+    <fieldset>
+      <legend>Dados Pessoais</legend>
+      <label>Nome:</label>
+      <input type="text" name="nome"><br><br>
+      <label>E-mail:</label>
+      <input type="email" name="email"><br>      
+    </fieldset>
+    <fieldset>
+      <legend>Serviços Desejados</legend>
+      <label>
+        <input type="checkbox" name="compraPassagem" value="compraPassagem">Compra de Passagens
+      </label>
+      <label>
+        <input type="checkbox" name="reservaHospedagem" value="reservaHospedagem">Reserva de Hospedagem
+      </label>
+      <label>
+        <input type="checkbox" name="aluguelVeiculo" value="aluguelVeiculo">Aluguel de Veículos
+      </label>
+    </fieldset>
+    <fieldset>
+      <legend>Forma de Pagamento</legend>
+      <label>
+        <input type="radio" name="formaPagamento" value="cartao">Cartão de Crédito
+      </label>
+      <label>
+        <input type="radio" name="formaPagamento" value="Boleto">Boleto
+      </label>
+      <label>
+        <input type="radio" name="formaPagamento" value="PIX">PIX
+      </label>
+    </fieldset>
+    <fieldset>
+      <legend>Prazo de Pagamento</legend>
+      <select name="prazoPagamento">
+        <option value="aVista">À Vista</option>
+        <option value="5x">5x sem juros</option>
+        <option value="10x">10x com juros</option>
+      </select>
+    </fieldset>
+    <label>Comentários Adicionais:</label><br>
+    <textarea rows="5" cols="50" name="comentarios"></textarea><br>
+    <input type="submit" value="Enviar">
+  </form>
+</body>
+</html>
