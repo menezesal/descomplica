@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Gerenciamento de Funcionários</title>
+  <script src="classes.js" defer></script>
+</head>
+<body>
+  <h1>Cadastro de Funcionários</h1>
+  <form id="formulario" onsubmit="submitForm(event)">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+    <br>
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade">
+    <br>
+    <label for="cargo">Cargo:</label>
+    <select id="cargo" name="cargo" required>
+      <option value="">Selecione...</option>
+      <option value="Gerente">Gerente</option>
+      <option value="Desenvolvedor">Desenvolvedor</option>
+    </select>
+    <br>
+    <label for="departamento">Departamento (Gerente):</label>
+    <input type="text" id="departamento" name="departamento">
+    <br>
+    <label for="linguagem">Linguagem de Programação (Desenvolvedor):</label>
+    <input type="text" id="linguagem" name="linguagem">
+    <br>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <div id="resultado"></div>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+
+      try {
+        document.getElementById("resultado").innerHTML = ''
+
+        const nome = document.getElementById('nome').value;
+        const idade = document.getElementById('idade').value;
+        const cargo = document.getElementById('cargo').value;
+        const departamento = document.getElementById('departamento').value;
+        const linguagem = document.getElementById('linguagem').value;
+
+        if (nome === '' || idade === '' || cargo === '') {
+          throw new Error('Todos os campos devem ser preenchidos.');
+        }
+        if ((cargo === 'Gerente' && departamento === '') || (cargo === 'Desenvolvedor' && linguagem === '')) {
+          throw new Error('Preencha o campo correspondente ao cargo selecionado.');
+        }
+
+        if (cargo === 'Gerente') {
+          const gerente = new Gerente(nome, idade, cargo, departamento);
+          gerente.seApresentar();
+          gerente.trabalhar();
+          gerente.gerenciar();
+        } else if (cargo === 'Desenvolvedor') {
+          const desenvolvedor = new Desenvolvedor(nome, idade, cargo, linguagem);
+          desenvolvedor.seApresentar();
+          desenvolvedor.trabalhar();
+          desenvolvedor.programar();
+        }
+
+        document.getElementById('formulario').reset();
+      } catch (error) {
+        exibirErro(error.message);
+      }
+    }
+
+    function exibirErro(mensagem) {
+      document.getElementById('resultado').innerHTML = `<p style="color: red;">Erro: ${mensagem}</p>`;
+    }
+  </script>
+</body>
+</html>
