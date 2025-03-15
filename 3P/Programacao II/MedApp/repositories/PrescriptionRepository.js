@@ -31,7 +31,7 @@ const updatePrescription = async(id,{ date, appointmentId, medicine, dosage, ins
 
 const deletePrescription = async (id) => {
   try {
-    return await Prescription.findByIdUpdate(id);
+    return await Prescription.findByIdAndDelete(id);
   } catch (error) {
     throw new Error(error);
   }

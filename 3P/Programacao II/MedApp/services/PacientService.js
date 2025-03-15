@@ -13,11 +13,11 @@ const savePacient = async({ name, birthDate, email, phone }) => {
 }
 
 const updatePacient = async(id, { name, birthDate, email, phone }) => {
-  return await pacientRespository,updatePacient(id, { name, birthDate, email, phone });
+  return await pacientRespository.updatePacient(id, { name, birthDate, email, phone });
 }
 
 const deletePacient = async(id) => {
-  return await pacientRespository,deletePacient(id);
+  return await pacientRespository.deletePacient(id);
 }
 
 const pacientService = {

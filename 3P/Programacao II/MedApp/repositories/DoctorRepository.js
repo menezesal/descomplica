@@ -23,6 +23,7 @@ const saveDoctor = async({ name, login, password, medicalSpecialty, medicalRegis
 
 const updateDoctor = async(id,{ name, login, password, medicalSpecialty, medicalRegistration, email, phone }) => {
   try {
+    console.log('chegou no repository');
     return await Doctor.findByIdAndUpdate(id,{ name, login, password, medicalSpecialty, medicalRegistration, email, phone }, {new: true});
   } catch (error) {
     throw new Error(error);
@@ -31,7 +32,7 @@ const updateDoctor = async(id,{ name, login, password, medicalSpecialty, medical
 
 const deleteDoctor = async (id) => {
   try {
-    return await Doctor.findByIdUpdate(id);
+    return await Doctor.findByIdAndDelete(id);
   } catch (error) {
     throw new Error(error);
   }

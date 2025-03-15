@@ -35,7 +35,7 @@ router.post('/postDoctor', async(req,res)=>{
     res.status(500).send(error); 
   }
 });
-router.put('/doctors/:id', async(req,res)=>{
+router.put('/doctors/:id', async(req,res)=> {
   const {id} = req.params;
   const{name, login, password, medicalSpecialty, medicalRegistration, email, phone} = req.body;
   try {
@@ -47,6 +47,7 @@ router.put('/doctors/:id', async(req,res)=>{
   }
 });
 router.delete('/doctors/:id', async(req,res)=> {
+  const {id} = req.params;
   try {
     const doctor = await doctorService.deleteDoctor(id);
     res.send(doctor);

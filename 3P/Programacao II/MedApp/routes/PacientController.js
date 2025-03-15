@@ -45,6 +45,7 @@ router.put('/pacients/:id', async(req,res)=>{
   }
 });
 router.delete('/pacients/:id', async(req,res)=> {
+  const {id} = req.params;
   try {
     const pacient = await pacientService.deletePacient(id);
     res.send(pacient);

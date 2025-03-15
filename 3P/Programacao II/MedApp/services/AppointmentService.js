@@ -13,11 +13,11 @@ const saveAppointment = async({date, doctorId, pacientId}) => {
 }
 
 const updateAppointment = async(id, {date, doctorId, pacientId}) => {
-  return await appointmentRespository,updateAppointment(id, {date, doctorId, pacientId});
+  return await appointmentRespository.updateAppointment(id, {date, doctorId, pacientId});
 }
 
 const deleteAppointment = async(id) => {
-  return await appointmentRespository,deleteAppointment(id);
+  return await appointmentRespository.deleteAppointment(id);
 }
 
 const appointmentService = {

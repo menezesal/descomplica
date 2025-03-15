@@ -13,11 +13,11 @@ const savePrescription = async({ date, appointmentId, medicine, dosage, instruct
 }
 
 const updatePrescription = async(id, { date, appointmentId, medicine, dosage, instructions }) => {
-  return await prescriptionRespository,updatePrescription(id, { date, appointmentId, medicine, dosage, instructions });
+  return await prescriptionRespository.updatePrescription(id, { date, appointmentId, medicine, dosage, instructions });
 }
 
 const deletePrescription = async(id) => {
-  return await prescriptionRespository,deletePrescription(id);
+  return await prescriptionRespository.deletePrescription(id);
 }
 
 const prescriptionService = {
