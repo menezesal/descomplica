@@ -35,7 +35,7 @@ router.post('/postPacient', async(req,res)=>{
 });
 router.put('/pacients/:id', async(req,res)=>{
   const {id} = req.params;
-  const{date} = req.body;
+  const{ name, birthDate, email, phone } = req.body;
   try {
     const pacient = await pacientService.updatePacient(id,{ name, birthDate, email, phone });
     res.send(pacient);

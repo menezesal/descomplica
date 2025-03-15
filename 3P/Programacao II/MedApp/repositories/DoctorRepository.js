@@ -23,7 +23,6 @@ const saveDoctor = async({ name, login, password, medicalSpecialty, medicalRegis
 
 const updateDoctor = async(id,{ name, login, password, medicalSpecialty, medicalRegistration, email, phone }) => {
   try {
-    console.log('chegou no repository');
     return await Doctor.findByIdAndUpdate(id,{ name, login, password, medicalSpecialty, medicalRegistration, email, phone }, {new: true});
   } catch (error) {
     throw new Error(error);
