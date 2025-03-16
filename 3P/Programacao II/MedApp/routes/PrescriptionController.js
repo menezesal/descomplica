@@ -24,7 +24,7 @@ router.get('/getPrescription/:id', async(req,res)=>{
   }
 });
 router.post('/postPrescription', async(req,res)=>{
-  const{date} = req.body;
+  const{ date, appointmentId, medicine, dosage, instructions } = req.body;
   try {
     const prescription = await prescriptionService.savePrescription({ date, appointmentId, medicine, dosage, instructions });
     res.send(prescription);

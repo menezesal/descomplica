@@ -6,7 +6,7 @@ const prescriptionSchema = new Schema ({
   date: {
       type: Date
   },
-  prescriptionId: {
+  appointmentId: {
       type: String,
       required: [true, 'Appointment ID is required.']
   },
