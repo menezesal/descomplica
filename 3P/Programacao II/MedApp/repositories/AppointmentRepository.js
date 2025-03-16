@@ -23,7 +23,7 @@ const saveAppointment = async({date, doctorId, pacientId}) => {
 
 const updateAppointment = async(id,{date, doctorId, pacientId}) => {
   try {
-    return await Appointment.findByIdUpdate(id,{date, doctorId, pacientId}, {new: true});
+    return await Appointment.findByIdAndUpdate(id,{date, doctorId, pacientId}, {new: true});
   } catch (error) {
     throw new Error(error);
   }

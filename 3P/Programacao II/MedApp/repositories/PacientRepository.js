@@ -23,7 +23,7 @@ const savePacient = async({ name, birthDate, email, phone }) => {
 
 const updatePacient = async(id,{ name, birthDate, email, phone }) => {
   try {
-    return await Pacient.findByIdUpdate(id,{ name, birthDate, email, phone }, {new: true});
+    return await Pacient.findByIdAndUpdate(id,{ name, birthDate, email, phone }, {new: true});
   } catch (error) {
     throw new Error(error);
   }
