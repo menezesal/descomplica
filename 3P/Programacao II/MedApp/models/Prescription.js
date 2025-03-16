@@ -8,7 +8,14 @@ const prescriptionSchema = new Schema ({
   },
   appointmentId: {
       type: String,
-      required: [true, 'Appointment ID is required.']
+      required: [true, 'Appointment ID is required.'],
+      validate: {
+        validator: function(v){
+          const id = new mongoose.Type.ObjectId(v);
+          return Appointment.exists({_id: id});
+        },
+        message: props => `Appointment ${props.value} not found`
+      }
   },
   medicine: {
       type: String,
