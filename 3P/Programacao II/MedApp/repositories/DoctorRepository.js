@@ -37,12 +37,22 @@ const deleteDoctor = async (id) => {
   }
 }
 
+//login
+const getDoctorByLogin = async(login) => {
+  try {
+    return await Doctor.findOne({"login": login});
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
 const DoctorRespository = {
   getAllDoctors,
   getDoctor,
   saveDoctor,
   updateDoctor,
-  deleteDoctor
+  deleteDoctor,
+  getDoctorByLogin
 }
 
 

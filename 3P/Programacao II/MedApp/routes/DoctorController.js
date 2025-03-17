@@ -55,6 +55,6 @@ router.delete('/doctors/:id', async(req,res)=> {
     console.log(error);
     res.status(500).send(error); 
   } 
-})
+});
 
 export default router;
